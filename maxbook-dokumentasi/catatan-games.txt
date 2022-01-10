@@ -1,0 +1,43 @@
+toko games :
+- pembeli games
+- produk games
+
+install back-end :
+- nodemon
+- express
+- cors
+- body-parser
+- mysql
+
+cara buat backend :
+- buat folder
+- buka vscode
+- npm init -y
+- packge.json muncul
+- npm i express body-parser mysql cors
+
+DATABASE
+========
+
+1. pembeli games :
+- id = int
+- nomor_anggota = string
+- nama = string
+- username = string
+- password = string
+- created = tanggal
+- updated = tanggal
+
+2. produk buku :
+- id = int
+- nomor_produk = string
+- judul = string
+- halaman = int
+- genre = string
+- tahun = int
+- penertbit - string
+- pengarang = string
+- ISBN = string
+- harga = int
+- created = tanggal
+- updated = tanggal
