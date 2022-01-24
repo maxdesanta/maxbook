@@ -25,6 +25,7 @@ DATABASE
 - nama = string
 - username = string
 - password = string
+- role = string
 - created = tanggal
 - updated = tanggal
 
