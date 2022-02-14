@@ -1,0 +1,89 @@
+toko games :
+- pembeli games
+- produk games
+
+install back-end :
+- nodemon
+- express
+- cors
+- body-parser
+- mysql
+
+akses database :
+1. buka xampp
+2. buka phpmyadmin
+3. buat database namatoko_db
+4. atur privilages untuk membuat user
+5. buat user account baru
+6. buat nama user: max
+7. buat table nama user dan password
+8. masuk ke database lalu membuat tabel sesuai kebutuhan
+
+tabel database :
+* User
+	- nama tabel user 
+	  Query : 
+	   => id INT NOT NULL AUTO_INCREMENT Primary Key
+	   => username varchar(255) NOT NULL
+	   => email varchar(255) NOT NULL
+	   => password varchar(255) NOT NULL 
+	   => nama varchar(255) NOT NULL
+	   => role varchar(255) 
+	   => created_at TIMESTAMP
+	   => updated_at TIMESTAMP
+
+* Book
+	- nama tabel Book
+	  Query : 
+	   => book_id INT NOT NULL AUTO_INCREMENT Primary Key
+	   => book_label varchar(255) NOT NULL
+	   => book_title varchar(255) NOT NULL
+	   => book_author varchar(255) NOT NULL 
+	   => book_genre varchar(255) 
+	   => book_publisher varchar(255)
+ 	   => book_isbn varchar(255)
+	   => book_year varchar(255)
+	   => book_price INT
+	   => book_stok INT
+	   => created_at TIMESTAMP
+	   => updated_at TIMESTAMP
+
+cara buat backend :
+- buat folder
+- buka vscode
+- npm init -y
+- packge.json muncul
+- npm i express body-parser mysql cors
+- masuk ke folder backend dengan menggunakan git bash
+- ketik npm init -y untuk membuat package.json
+- ketik npm i express mysql body-parser cors dotenv
+- ketik crtl + shift + p ketik gitignore dan pilih node
+- inisialisasi express, cors, bodyparser, port, dan routing di app.js
+- jalankan app.js dengan ketik npm run start
+
+DATABASE
+========
+
+1. pembeli games :
+- id = int
+- nomor_anggota = string
+- nama = string
+- username = string
+- password = string
+- role = string
+- created = tanggal
+- updated = tanggal
+
+2. produk buku :
+- id = int
+- nomor_produk = string
+- judul = string
+- halaman = int
+- genre = string
+- tahun = int
+- penertbit - string
+- pengarang = string
+- ISBN = string
+- harga = int
+- created = tanggal
+- updated = tanggal
