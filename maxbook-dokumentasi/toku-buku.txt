@@ -1,6 +1,6 @@
-toko games :
-- pembeli games
-- produk games
+toko buku :
+- pembeli 
+- produk 
 
 install back-end :
 - nodemon
