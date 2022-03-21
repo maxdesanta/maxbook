@@ -8,6 +8,7 @@ install back-end :
 - cors
 - body-parser
 - mysql
+- dotenv
 
 akses database :
 1. buka xampp
@@ -87,3 +88,6 @@ DATABASE
 - harga = int
 - created = tanggal
 - updated = tanggal
+
+database : max
+password : maxdesanta1$
