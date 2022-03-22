@@ -9,9 +9,9 @@ const connectDB = mysql.createConnection({
     host: DBConfig.HOST,
     user: DBConfig.USER,
     password: DBConfig.PASSWORD,
-    db: DBConfig.DB,
+    database: DBConfig.DB,
 });
-cd 
+
 // open mysql Connection
 connectDB.connect(err => {
     if (err) throw err;
