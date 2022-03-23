@@ -40,17 +40,73 @@ class Book {
         sql.query(sqlQuery, (err, res) => {
             if (err) {
                 console.log('error => ', err);
+                result(err, null);
             } else {
-                console.log('result', res);
+                let rawData = res;
+                let books = [];
+                let book;
+                rawData.forEach((eachData) => {
+                    book = new Book(
+                        eachData.id,
+                        eachData.judul,
+                        eachData.label,
+                        eachData.author,
+                        eachData.genre,
+                        eachData.publisher,
+                        eachData.isbn,
+                        eachData.year,
+                        eachData.price,
+                        eachData.stok,
+                        eachData.created_at,
+                        eachData.updated_at
+                    );
+                    books.push(book);
+                });
+                console.log('result', res)
+                result(null, books);
             }
         });
     }
-    // tempilkan semua buku berdasarkan idan
+    // tempilkan semua buku berdasarkan id
+    static cariBukuBerdasarkanId(id,result) {
+        let sqlQuery = `SELECT * FROM buku WHERE id = ${id}`;
+
+        sql.query(sqlQuery, (err, res) => {
+            if (err) {
+                console.log('error => ', err);
+                result(err,null);
+            } else {
+                let rawData = res;
+                let books = [];
+                let book;
+                rawData.forEach((eachData) => {
+                    book = new Book(
+                        eachData.id,
+                        eachData.judul,
+                        eachData.label,
+                        eachData.author,
+                        eachData.genre,
+                        eachData.publisher,
+                        eachData.isbn,
+                        eachData.year,
+                        eachData.price,
+                        eachData.stok,
+                        eachData.created_at,
+                        eachData.updated_at
+                    );
+                    books.push(book);
+                });
+                console.log('result', res)
+                result(null, books);
+            }
+        });
+    }
     // upload buku baru
     // mengubah data buku
     // hapus buku
 }
 
+// module export
 module.exports = {
     Book
 }

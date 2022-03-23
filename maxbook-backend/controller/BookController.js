@@ -10,12 +10,31 @@ class BookController {
         Book.tampilkanSemuaBuku((err, data) => {
             if (err) {
                 console.log('Controller error');
-                result(err, null);
             } else {
-                console.log('data', data);
-                result(null, res);
+                res.json(data);
             }
         });
+    }
+
+    // static cari buku berdasarkan ID 
+    static findAllBooksById(req, res) {
+        const { id } = req.params;
+        Book.cariBukuBerdasarkanId(id, (err, data) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(data);
+            }
+        });    
+    }
+
+    // static cari buku berdasarkan ID 
+    static AddBook(req, res) {
+        res.send('ini halaman tambah buku');
+    }
+
+    static UpdateBook(req, res) {
+        res.send('ini halaman edit buku');
     }
 }
 
