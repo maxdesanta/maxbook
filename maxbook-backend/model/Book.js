@@ -102,6 +102,19 @@ class Book {
         });
     }
     // upload buku baru
+    static tambahBuku(data, result) {
+        let sqlQuery = `INSERT INTO buku SET ?`;
+
+        sql.query(sqlQuery, data, (err, res) => {
+            if (err) {
+                console.log('error => ', err);
+                result(err,null);
+            } else {
+                console.log('result')
+                result(null, true);
+            }
+        });
+    }
     // mengubah data buku
     // hapus buku
 }

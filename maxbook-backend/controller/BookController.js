@@ -30,12 +30,19 @@ class BookController {
 
     // static cari buku berdasarkan ID 
     static AddBook(req, res) {
-        res.send('ini halaman tambah buku');
+        const payload = req.body;
+        Book.tambahBuku(payload, (err, data) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(data);
+            }
+        });    
     }
 
-    static UpdateBook(req, res) {
-        res.send('ini halaman edit buku');
-    }
+    // static UpdateBook(req, res) {
+    //     res.send('ini halaman edit buku');
+    // }
 }
 
 // module.export

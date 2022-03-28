@@ -17,7 +17,7 @@ bookRouter.get('/:id', BookController.findAllBooksById);
 bookRouter.post('/add', BookController.AddBook);
 
 // update book by id (Endpoint)
-bookRouter.put('/update/:id', BookController.UpdateBook);
+// bookRouter.put('/update/:id', BookController.UpdateBook);
 
 
 // export
