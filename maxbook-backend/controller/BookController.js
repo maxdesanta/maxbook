@@ -31,11 +31,26 @@ class BookController {
     // static cari buku berdasarkan ID 
     static AddBook(req, res) {
         const payload = req.body;
+
+        // check empty data 
+        for (const each in payload) {
+            if (!payload[each]) {
+                payload[each] = null;
+            }
+        }
+
+        console.log(payload, 'ini payload');
+
         Book.tambahBuku(payload, (err, data) => {
             if (err) {
-                console.log(err);
+                console.log('controller error');
             } else {
-                res.json(data);
+                res.json({
+                    title: 'tambah data buku',
+                    message: 'berhasil ditambahkan',
+                    status: 200,
+                    data
+                });
             }
         });    
     }

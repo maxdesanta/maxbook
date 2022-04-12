@@ -18,7 +18,7 @@ class Book {
         this.label = label;
         this.author = author;
         this.genre = genre;
-        this.publisher = publisher;
+        this .publisher = publisher;
         this.isbn = isbn;
         this.year = year;
         this.price = price;
@@ -103,7 +103,7 @@ class Book {
     }
     // upload buku baru
     static tambahBuku(data, result) {
-        let sqlQuery = `INSERT INTO buku SET ?`;
+        let sqlQuery = `INSERT INTO buku VALUES ?`;
 
         sql.query(sqlQuery, data, (err, res) => {
             if (err) {
