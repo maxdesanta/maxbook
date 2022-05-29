@@ -12,7 +12,7 @@ const sql = require('../config/db');
 // bikin class buku
 class Book {
     // constructor
-    constructor(id,judul,label,author,genre,publisher,isbn,year,price,stok,created_at,updated_at) {
+    constructor(id,judul,label,author,genre,publisher,isbn,year,harga,stok,created_at,updated_at) {
         this.id = id;
         this.judul = judul;
         this.label = label;
@@ -21,7 +21,7 @@ class Book {
         this .publisher = publisher;
         this.isbn = isbn;
         this.year = year;
-        this.price = price;
+        this.harga = harga;
         this.stok = stok;
         this.created_at = created_at;
         this.updated_at = updated_at;
@@ -55,7 +55,7 @@ class Book {
                         eachData.publisher,
                         eachData.isbn,
                         eachData.year,
-                        eachData.price,
+                        eachData.harga,
                         eachData.stok,
                         eachData.created_at,
                         eachData.updated_at
@@ -89,7 +89,7 @@ class Book {
                         eachData.publisher,
                         eachData.isbn,
                         eachData.year,
-                        eachData.price,
+                        eachData.harga,
                         eachData.stok,
                         eachData.created_at,
                         eachData.updated_at
@@ -103,7 +103,7 @@ class Book {
     }
     // upload buku baru
     static tambahBuku(data, result) {
-        let sqlQuery = `INSERT INTO buku VALUES ?`;
+        let sqlQuery = `INSERT INTO buku SET ?`;
 
         sql.query(sqlQuery, data, (err, res) => {
             if (err) {
@@ -116,7 +116,43 @@ class Book {
         });
     }
     // mengubah data buku
+    static editBuku(id, data, result) {
+        /* call other variables */
+        let date = new Date();
+        let updatePayload = data;
+        updatePayload.updated_at = date;
+
+        /* sql query */
+        let sqlQuery = `UPDATE buku SET ? WHERE id = ${id}`;
+
+        /* ganti buku baru */
+        sql.query(sqlQuery, updatePayload, (err, res) => {
+            if (err) {
+                console.log('error => ', err);
+                result(err,null);
+            } else {
+                console.log('result')
+                result(null, res);
+            }
+        });
+    }
+
     // hapus buku
+    static hapusBuku(id, result) {
+        /* sql query */
+        let sqlQuery = `DELETE FROM buku WHERE id = ${id}`;
+
+        /* hapus buku */
+        sql.query(sqlQuery, id, (err, res) => {
+            if (err) {
+                console.log('error => ', err);
+                result(err,null);
+            } else {
+                console.log('result')
+                result(null, true);
+            }
+        });
+    }
 }
 
 // module export

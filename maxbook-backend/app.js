@@ -30,16 +30,23 @@ let originOptionCors = {
     origin: `http://localhost:${port}`
 };
 
-app.use(cors(originOptionCors));
-
-// routing
-app.use('/', router);
+app.use(
+    cors({
+    origin : '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue : false,
+    optionsSuccessStatus: 204,
+    })
+);
 
 // parse requests of content-type - application/json
-app.use(bodyParser.json());
+app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+
+// routing
+app.use('/', router);
 
 // Port Connection
 app.listen(port, () => `Port connected on ${port}`);

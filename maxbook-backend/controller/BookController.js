@@ -28,9 +28,11 @@ class BookController {
         });    
     }
 
-    // static cari buku berdasarkan ID 
+    // static tambah buku
     static AddBook(req, res) {
-        const payload = req.body;
+        let payload = req.body;
+        // payload.harga = +req.body.harga;
+        // payload.stok = +req.body.stok;
 
         // check empty data 
         for (const each in payload) {
@@ -49,15 +51,49 @@ class BookController {
                     title: 'tambah data buku',
                     message: 'berhasil ditambahkan',
                     status: 200,
-                    data
+                    data,
                 });
             }
         });    
     }
 
-    // static UpdateBook(req, res) {
-    //     res.send('ini halaman edit buku');
-    // }
+    // static update buku
+    static UpdateBook(req, res) {
+        let payLoad = req.body;
+        let id = req.params.id;
+
+        Book.editBuku(id, payLoad, (err, data) => {
+            if (err) {
+                console.log('controller error');
+            } else {
+                res.json({
+                    title: 'edit buku',
+                    message: 'buku sudah di edit',
+                    status: 200,
+                    data
+                })
+            }
+        })
+    }
+
+    // static hapus Buku
+    static DeleteBook(req, res) {
+        let id = req.params.id;
+
+        Book.hapusBuku(id, (err, data) => {
+            if (err) {
+                console.log('controller error');
+            } else {
+                res.json({
+                    title: 'hapus buku',
+                    message: 'buku sudah di hapus',
+                    status: 200,
+                    data
+                })
+            }
+        })
+    }
+
 }
 
 // module.export

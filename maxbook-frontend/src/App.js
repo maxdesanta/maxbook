@@ -1,12 +1,10 @@
 // import logo from './logo.svg';
 import './App.css';
-import Homepage from './pages/Homepage';
+// import Homepage from './pages/Homepage';
 
 export default function App() {
   return (
-    <div>
-      <Homepage />
-    </div>
+    <h1>Hello World</h1>
   );
 }
 

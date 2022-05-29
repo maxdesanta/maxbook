@@ -17,7 +17,10 @@ bookRouter.get('/:id', BookController.findAllBooksById);
 bookRouter.post('/add', BookController.AddBook);
 
 // update book by id (Endpoint)
-// bookRouter.put('/update/:id', BookController.UpdateBook);
+bookRouter.put('/update/:id', BookController.UpdateBook);
+
+// delete book by id (Endpoint)
+bookRouter.delete('/delete/:id', BookController.DeleteBook);
 
 
 // export
