@@ -18,7 +18,7 @@ class Book {
         this.label = label;
         this.author = author;
         this.genre = genre;
-        this .publisher = publisher;
+        this.publisher = publisher;
         this.isbn = isbn;
         this.year = year;
         this.harga = harga;
